@@ -3,6 +3,7 @@ import {LittleCard} from "../littleCardRreview";
 import {BlockFilms} from "./style";
 import {API_KEY, API_URL_POPULAR} from "../../utils";
 import {FilmInfo} from "./types";
+import {NavLink} from "react-router-dom";
 
 export const FilmsList = () => {
     const [item, setItem] = useState<FilmInfo[]>([]);
@@ -19,12 +20,14 @@ export const FilmsList = () => {
     return (
         <BlockFilms>
             {item.map(e =>
-                <LittleCard key={e.filmId}
-                    filmId={e.filmId}
-                    nameRu={e.nameRu}
-                    rating={e.rating}
-                    genres={e.genres}
-                    posterUrlPreview={e.posterUrlPreview} />
+                <NavLink to={`/film/${e.filmId}`}>
+                    <LittleCard key={e.filmId}
+                        filmId={e.filmId}
+                        nameRu={e.nameRu}
+                        rating={e.rating}
+                        genres={e.genres}
+                        posterUrlPreview={e.posterUrlPreview} />
+                </NavLink>
             )}
         </BlockFilms>
     )

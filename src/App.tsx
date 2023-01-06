@@ -3,6 +3,9 @@ import { Global } from './global_style';
 import {Layout} from "./layout";
 import {LittleCard} from "./components/littleCardRreview";
 import {FilmsList} from "./components/FilmsList";
+import {Route, Routes} from "react-router-dom";
+import {SelectedCard} from "./components/SelectedCard";
+import {FilmsListSelected} from "./components/FilmListSeleted";
 
 
 function App() {
@@ -11,7 +14,10 @@ function App() {
       <Global />
       <div className="App">
           <Layout>
-                <FilmsList />
+              <Routes>
+              <Route path="/" element={<FilmsList />} />
+              <Route path="/film/:id" element={<FilmsListSelected />} />
+              </Routes>
           </Layout>
       </div>
     </>

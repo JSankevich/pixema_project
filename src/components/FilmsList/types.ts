@@ -7,6 +7,5 @@ export type FilmInfo = {
     nameRu: string,
     genres: [Genre],
     rating: string,
-    posterUrl?: string,
     posterUrlPreview: string,
 }
