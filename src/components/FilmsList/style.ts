@@ -8,4 +8,8 @@ export const BlockFilms = styled.div `
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+  
+    a {
+        text-decoration: none;
+    }
 `;
