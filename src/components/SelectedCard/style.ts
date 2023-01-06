@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SelectedWrapper = styled.div `
     width: 1186px;
     height: 668px;
-    border: 1px solid white;
+    //border: 1px solid white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,12 +28,12 @@ export const ImageBigWrapper = styled.div `
 export const ContentWrapper = styled.div `
     width: 878px;
     height: 668px;
-    border: 1px solid white;
+    //border: 1px solid white;
 `;
 
 export const FilmGenre = styled.div `
     height: 24px;
-    border: 1px solid white;
+    //border: 1px solid white;
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -49,7 +49,7 @@ export const FilmTitle = styled.div `
     font-size: 40px;
     line-height: 60px;
     color: #FFFFFF;
-    border: 1px solid white;
+    //border: 1px solid white;
 `;
 
 export const FilmRating = styled.div `
@@ -97,6 +97,6 @@ export const FilmDescription = styled.div `
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
-    border: 1px solid white;
+    //border: 1px solid white;
     margin-top: 40px;
 `;

@@ -4,6 +4,7 @@
  import {SelectedCard} from "../SelectedCard";
  import {FilmInfoSelected} from "./types";
  import {FilmSelectedWrapper} from "./style";
+ import {BackHome} from "../ButtonBackHome";
 
  type IdInfo = {
      id: string,
@@ -26,6 +27,7 @@
 
      return (
          <>
+             <BackHome />
              <FilmSelectedWrapper>
                  {item && (
                  <>
