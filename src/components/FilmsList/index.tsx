@@ -4,6 +4,7 @@ import {BlockFilms} from "./style";
 import {API_KEY, API_URL_POPULAR} from "../../utils";
 import {FilmInfo} from "./types";
 import {NavLink} from "react-router-dom";
+import {BackHome} from "../ButtonBackHome";
 
 export const FilmsList = () => {
     const [item, setItem] = useState<FilmInfo[]>([]);
@@ -18,6 +19,7 @@ export const FilmsList = () => {
             .then(data => setItem(data.films))
     },[])
     return (
+        <>
         <BlockFilms>
             {item.map(e =>
                 <NavLink to={`/film/${e.filmId}`}>
@@ -30,5 +32,6 @@ export const FilmsList = () => {
                 </NavLink>
             )}
         </BlockFilms>
+        </>
     )
 };
