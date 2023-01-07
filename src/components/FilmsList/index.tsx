@@ -20,6 +20,7 @@ export const FilmsList = () => {
     },[])
     return (
         <>
+
         <BlockFilms>
             {item.map(e =>
                 <NavLink to={`/film/${e.filmId}`}>

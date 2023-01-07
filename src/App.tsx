@@ -5,8 +5,8 @@ import {FilmsList} from "./components/FilmsList";
 import {Route, Routes} from "react-router-dom";
 import {FilmsListSelected} from "./components/FilmListSeleted";
 import {NotFound} from "./components/ErrorNotFound";
-import {Search} from "./components/Search";
-
+import {SignIn} from "./components/Forms/SignIn";
+import {SignUpForm} from "./components/Forms/SignUp";
 
 function App() {
   return (
@@ -17,6 +17,8 @@ function App() {
               <Routes>
               <Route path="/" element={<FilmsList />} />
               <Route path="/film/:id" element={<FilmsListSelected />} />
+              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignUp" element={<SignUpForm />}  />
               <Route path="/*" element={<NotFound />} />
               </Routes>
           </Layout>
