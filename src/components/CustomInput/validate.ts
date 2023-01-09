@@ -7,7 +7,7 @@ export const WRONG_PASSWORD_CONFIRM=
     'Пароли не сопадают';
 export const ENTER_NAME = 'Поле имя не может быть пустым';
 export const WRONG_NAME_LENGTH =
-    'Имя должно содержать не менее 2 и не более 15 символов';
+    'Имя должно содержать не менее 2 и не более 10 символов';
 export const NOT_ERROR = '';
 export const emailRegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 

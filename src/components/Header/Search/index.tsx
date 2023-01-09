@@ -1,18 +1,20 @@
 import React, {ReactEventHandler, useState} from "react";
 import {SearchWrapper} from "./style";
 
+export type SearchProps = {
+    onChange: () => void,
+    value: string,
+}
+
 export const Search = () => {
     const [search, setSearch] = useState('');
-
-    const SearchFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-        console.log(search)
-    }
 
     return (
         <>
             <SearchWrapper>
-                <input type="text" placeholder="Начать поиск..." onChange={SearchFunc}/>
+                <input type="search"
+                       placeholder="Начать поиск..."
+                       />
             </SearchWrapper>
         </>
     )

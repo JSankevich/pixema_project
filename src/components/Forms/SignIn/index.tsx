@@ -12,8 +12,8 @@ import {
 } from "../../CustomInput/validate";
 import {Button} from "../Button";
 import {DontHaveAccount} from "../Account";
-import {NavLink} from "react-router-dom";
-import {ThemeContext} from "../../../App";
+import {Navigate, NavLink, useNavigate} from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 export const SignIn = () => {
 
@@ -23,6 +23,7 @@ export const SignIn = () => {
     const [passwordError, setPasswordError] = useState('');
     const [formValid, setFormValid] = useState(false);
     const [nameError, setNameError] = useState(' ');
+    let navigate = useNavigate();
 
     useEffect(() => {
          if (emailError || passwordError) {
@@ -34,22 +35,26 @@ export const SignIn = () => {
      }, [emailError, passwordError])
 
     const handleSignIn = (e:any) => {
+
         e.preventDefault();
         let userInStorage:any = localStorage.getItem(name);
         let dataInStorage = JSON.parse(userInStorage);
 
         if (userInStorage == null) {
-            console.log ("неверный username");
+            alert ("Неверное имя пользователя. Попробуйте ещё раз");
         } else if (name == dataInStorage.username && password == dataInStorage.password) {
-            console.log ("вход осуществлен");
+            alert ("Вход осуществлен");
+            setName('');
+            setPassword('');
+            navigate('/');
         } else {
-            console.log ("неверный password");
+            alert ("Неверный пароль. Попробуйте ещё раз");
         }
     }
 
     const handlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName (e.target.value)
-        if (e.target.value.length < 2 || e.target.value.length > 15 ) {
+        if (e.target.value.length < 2 || e.target.value.length > 10 ) {
             setNameError(`${WRONG_NAME_LENGTH}`)
             if (!e.target.value) {
                 setNameError(`${ENTER_NAME}`)
@@ -82,7 +87,7 @@ export const SignIn = () => {
                 placeholder="Введите имя пользователя..."
                 label="Имя пользователя"
                  />
-            {emailError && <ErrorWrapperEmail>{emailError}</ErrorWrapperEmail>}
+            {nameError && <ErrorWrapperEmail>{nameError}</ErrorWrapperEmail>}
             <CustomInput
                 onChange={e => handlerPassword(e)}
                 value={password}

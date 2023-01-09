@@ -34,7 +34,7 @@ export const ErrorWrapperName = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 220px
+    top: 310px
 `;
 
 export const WrapperEmailError = styled.div `
@@ -45,7 +45,7 @@ export const WrapperEmailError = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 330px
+    top: 420px
 `;
 
 export const WrapperErrorPassword = styled.div `
@@ -56,5 +56,5 @@ export const WrapperErrorPassword = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    bottom: 330px
+    top: 535px
 `;
