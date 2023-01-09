@@ -5,6 +5,6 @@ export type CustomInputProps = {
     value: string,
     name: string,
     type: "email" | "password" | "text",
-    placeholder: "Введите вашу почту..." | "Введите ваш пароль..." | "Введите ваше имя...",
-    label: "Email" | "Пароль" | "Имя",
+    placeholder: "Введите вашу почту..." | "Введите ваш пароль..." | "Введите имя пользователя...",
+    label: "Email" | "Пароль" | "Имя пользователя",
 }
