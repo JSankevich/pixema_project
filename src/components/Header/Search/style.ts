@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const SearchWrapper = styled.div `
-    width: 1186px;
+    width: 800px;
     height: 56px;
     margin: 40px auto 56px auto;
+    
 
     input {
       height: 99%;
@@ -20,6 +21,7 @@ export const SearchWrapper = styled.div `
       box-shadow: none;
       border: none;
       padding-left: 20px;
+      margin-top: 7px;
 
     &:focus {
         outline: 0;

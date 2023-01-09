@@ -12,7 +12,7 @@ import {
     WRONG_EMAIL, WRONG_NAME_LENGTH, WRONG_PASSWORD_CONFIRM,
     WRONG_PASSWORD_LENGTH
 } from "../../CustomInput/validate";
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 
 export const SignUpForm = () => {
 
@@ -41,13 +41,16 @@ export const SignUpForm = () => {
                 password: password,
         }
             localStorage.setItem(name, JSON.stringify(user));
-            console.log ('user added')
+        alert ("Регистрация прошла успешно");
+        setName('');
+        setEmail('');
+        setPassword('');
     }
 
     const handlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName (e.target.value)
 
-        if (e.target.value.length < 2 || e.target.value.length > 15 ) {
+        if (e.target.value.length < 2 || e.target.value.length > 10 ) {
             setNameError(`${WRONG_NAME_LENGTH}`)
             if (!e.target.value) {
                 setNameError(`${ENTER_NAME}`)
