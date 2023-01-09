@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Title} from "../Title";
 import {SignInWrapper, ErrorWrapperPassword, ErrorWrapperEmail, WrapperTextAccount} from "../SignIn/style"
 import {CustomInput} from "../../CustomInput";
@@ -13,6 +13,7 @@ import {
 import {Button} from "../Button";
 import {DontHaveAccount} from "../Account";
 import {NavLink} from "react-router-dom";
+import {ThemeContext} from "../../../App";
 
 export const SignIn = () => {
 
@@ -69,6 +70,7 @@ export const SignIn = () => {
      }
 
     return (
+        <>
         <SignInWrapper>
             <Title text='Войти' />
             <form>
@@ -99,6 +101,6 @@ export const SignIn = () => {
             </NavLink>
             </WrapperTextAccount>
         </SignInWrapper>
-
+        </>
     )
 }
