@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {SignUpWrapper, TextWrapper, ErrorWrapperName, WrapperEmailError, WrapperErrorPassword} from "./style";
 import {Title} from "../Title";
 import {Button} from "../Button";
@@ -16,22 +16,33 @@ import {NavLink} from "react-router-dom";
 
 export const SignUpForm = () => {
 
-const [name, setName] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [emailError, setEmailError] = useState(' ');
-const [passwordError, setPasswordError] = useState(' ');
-const [nameError, setNameError] = useState(' ');
-const [formValid, setFormValid] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState(' ');
+    const [passwordError, setPasswordError] = useState(' ');
+    const [nameError, setNameError] = useState(' ');
+    const [formValid, setFormValid] = useState(false);
 
     useEffect(() => {
             if (nameError || emailError || passwordError) {
                 setFormValid(false);
+
             } else {
                 setFormValid(true);
             }
-
         }, [emailError, passwordError])
+
+    const handlerSubmit = (event: any) => {
+            event.preventDefault();
+        let user = {
+                username: name,
+                email: email,
+                password: password,
+        }
+            localStorage.setItem(name, JSON.stringify(user));
+            console.log ('user added')
+    }
 
     const handlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName (e.target.value)
@@ -79,8 +90,8 @@ const [formValid, setFormValid] = useState(false);
                         value={name}
                         name={name}
                         type="text"
-                        placeholder="Введите ваше имя..."
-                        label="Имя"
+                        placeholder="Введите имя пользователя..."
+                        label="Имя пользователя"
                     />
                     {nameError && <ErrorWrapperName>{nameError}</ErrorWrapperName>}
                     <CustomInput
@@ -101,7 +112,12 @@ const [formValid, setFormValid] = useState(false);
                         label="Пароль"
                     />
                     {passwordError && <WrapperErrorPassword>{passwordError}</WrapperErrorPassword>}
-                    <Button disabled={!formValid} type="submit" text="Зарегистрироваться" />
+                    <Button
+                        disabled={!formValid}
+                        type="submit"
+                        text="Зарегистрироваться"
+                        onClick={handlerSubmit}
+                    />
                 </form>
                 <TextWrapper>
                     <DontHaveAccount textMain='Уже есть аккаунт? ' />

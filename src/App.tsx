@@ -7,6 +7,7 @@ import {FilmsListSelected} from "./components/FilmListSeleted";
 import {NotFound} from "./components/ErrorNotFound";
 import {SignIn} from "./components/Forms/SignIn";
 import {SignUpForm} from "./components/Forms/SignUp";
+import {Pagination} from "./components/Pagination/paginate";
 
 function App() {
   return (

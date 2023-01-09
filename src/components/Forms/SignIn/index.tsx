@@ -4,10 +4,10 @@ import {SignInWrapper, ErrorWrapperPassword, ErrorWrapperEmail, WrapperTextAccou
 import {CustomInput} from "../../CustomInput";
 import {
     emailRegExp,
-    ENTER_EMAIL,
+    ENTER_EMAIL, ENTER_NAME,
     ENTER_PASSWORD,
     NOT_ERROR,
-    WRONG_EMAIL,
+    WRONG_EMAIL, WRONG_NAME_LENGTH,
     WRONG_PASSWORD_LENGTH
 } from "../../CustomInput/validate";
 import {Button} from "../Button";
@@ -16,11 +16,12 @@ import {NavLink} from "react-router-dom";
 
 export const SignIn = () => {
 
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [emailError, setEmailError] = useState('');
-const [passwordError, setPasswordError] = useState('');
-const [formValid, setFormValid] = useState(false);
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [formValid, setFormValid] = useState(false);
+    const [nameError, setNameError] = useState(' ');
 
     useEffect(() => {
          if (emailError || passwordError) {
@@ -31,22 +32,33 @@ const [formValid, setFormValid] = useState(false);
 
      }, [emailError, passwordError])
 
-    const handlerEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-         setEmail (e.target.value)
+    const handleSignIn = (e:any) => {
+        e.preventDefault();
+        let userInStorage:any = localStorage.getItem(name);
+        let dataInStorage = JSON.parse(userInStorage);
 
-         if (!emailRegExp.test(String(e.target.value).toLowerCase())) {
-             setEmailError(`${WRONG_EMAIL}`)
-             if (!e.target.value) {
-                 setEmailError (`${ENTER_EMAIL}`)
-             }
-         } else {
-             setEmailError(`${NOT_ERROR}`)
-         }
-      }
+        if (userInStorage == null) {
+            console.log ("неверный username");
+        } else if (name == dataInStorage.username && password == dataInStorage.password) {
+            console.log ("вход осуществлен");
+        } else {
+            console.log ("неверный password");
+        }
+    }
+
+    const handlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setName (e.target.value)
+        if (e.target.value.length < 2 || e.target.value.length > 15 ) {
+            setNameError(`${WRONG_NAME_LENGTH}`)
+            if (!e.target.value) {
+                setNameError(`${ENTER_NAME}`)
+            }} else {
+            setNameError(`${NOT_ERROR}`)
+        }
+    }
 
     const handlerPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
          setPassword (e.target.value)
-
          if (e.target.value.length < 5 || e.target.value.length > 20 ) {
              setPasswordError(`${WRONG_PASSWORD_LENGTH}`)
              if (!e.target.value) {
@@ -61,12 +73,12 @@ const [formValid, setFormValid] = useState(false);
             <Title text='Войти' />
             <form>
             <CustomInput
-                onChange={e => handlerEmail(e)}
-                value={email}
-                name={email}
-                type="email"
-                placeholder="Введите вашу почту..."
-                label="Email"
+                onChange={e => handlerName(e)}
+                value={name}
+                name={name}
+                type="text"
+                placeholder="Введите имя пользователя..."
+                label="Имя пользователя"
                  />
             {emailError && <ErrorWrapperEmail>{emailError}</ErrorWrapperEmail>}
             <CustomInput
@@ -78,8 +90,8 @@ const [formValid, setFormValid] = useState(false);
                 label="Пароль"
                  />
             {passwordError && <ErrorWrapperPassword>{passwordError}</ErrorWrapperPassword>}
-            <Button disabled={!formValid} type="submit" text="Войти" />
             </form>
+            <Button onClick={handleSignIn} disabled={!formValid} type="submit" text="Войти" />
             <WrapperTextAccount>
             <DontHaveAccount textMain='Нет аккаунта? ' />
             <NavLink to="/SignUp">
