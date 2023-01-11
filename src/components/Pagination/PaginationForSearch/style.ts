@@ -1,29 +1,30 @@
 import styled from "styled-components";
 
-export const InputWrapper = styled.div `
+export const TextSearchWrapper = styled.div `
+    width: 700px;
+    margin: 0 auto;
+    height: 56px;
+ 
+    @media (max-width: 790px) {
+        width: 272px;
+    }
+  
     input {
-        width: 494px;
-        height: 56px;
-        background: #323537;
-        border-radius: 10px;
         outline: 0;
-        outline-offset: 0;
+        width: 100%;
+        height: 100%;
         border: none;
+        border-radius: 10px;
+        background: #323537;
         padding: 20px;
-        margin-bottom: 24px;
         font-family: 'Exo 2', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         color: #80858B;
-
-        @media (max-width: 790px) {
-            width: 224px;
-            margin-bottom: 45px;
-        }
       
-        &::placeholder {
+        ::placeholder {
             font-family: 'Exo 2', sans-serif;
             font-style: normal;
             font-weight: 500;
@@ -36,14 +37,5 @@ export const InputWrapper = styled.div `
             border: 2px solid #7B61FF;
         }
     }
-`;
+  `;
 
-export const LabelWrapper = styled.div `
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #FFFFFF;
-    margin-bottom: 8px;
-`;

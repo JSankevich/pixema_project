@@ -9,5 +9,15 @@ export const FooterWrapper = styled.div `
     font-size: 16px;
     line-height: 24px;
     color: #AFB2B6;
-    margin: 20px auto
+    margin: 0 auto 44px auto;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 1490px) {
+        width: 768px;
+    }
+  
+    @media (max-width: 790px) {
+        width: 320px;
+    }
 `;

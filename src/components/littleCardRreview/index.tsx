@@ -1,6 +1,6 @@
 import React from 'react';
 import {CardWrapper, FilmRating, FilmTitle, FilmType, ImageWrapper} from "./style";
-import {FilmInfo} from "../FilmsList/types";
+import {FilmInfo} from "./types";
 
 export const LittleCard = (e:FilmInfo) => {
     return (

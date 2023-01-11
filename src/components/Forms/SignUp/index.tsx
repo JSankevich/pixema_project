@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 import {SignUpWrapper, TextWrapper, ErrorWrapperName, WrapperEmailError, WrapperErrorPassword} from "./style";
 import {Title} from "../Title";
-import {Button} from "../Button";
-import {DontHaveAccount} from "../Account";
+import {Button} from "../../Buttons/SignInUP";
+import {DontHaveAccount} from "../../Buttons/Account";
 import {CustomInput} from "../../CustomInput";
 import {
     emailRegExp,
@@ -19,6 +19,7 @@ export const SignUpForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [inAccount, setInAccount] = useState(false);
     const [emailError, setEmailError] = useState(' ');
     const [passwordError, setPasswordError] = useState(' ');
     const [nameError, setNameError] = useState(' ');
@@ -39,6 +40,7 @@ export const SignUpForm = () => {
                 username: name,
                 email: email,
                 password: password,
+                inAccount: inAccount,
         }
             localStorage.setItem(name, JSON.stringify(user));
         alert ("Регистрация прошла успешно");

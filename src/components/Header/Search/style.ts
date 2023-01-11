@@ -1,34 +1,18 @@
 import styled from "styled-components";
 
 export const SearchWrapper = styled.div `
-    width: 800px;
+    width: 56px;
     height: 56px;
-    margin: 40px auto 56px auto;
-    
 
-    input {
-      height: 99%;
-      width: 99%;
-      background: #323537;
-      border-radius: 10px;
-      font-family: 'Exo 2', sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      color: #80858B;
-      outline: 0;
-      box-shadow: none;
-      border: none;
-      padding-left: 20px;
-      margin-top: 7px;
-
-    &:focus {
-        outline: 0;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
     }
 
-    &::placeholder {
-        color: #80858B;
-        opacity: 0.5;
+    @media (max-width: 790px) {
+        width: 35px;
+        height: 35px;
     }
+
 `;
