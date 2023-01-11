@@ -6,5 +6,7 @@ export const NotFoundText = styled.div `
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #7B61FF;
 `;

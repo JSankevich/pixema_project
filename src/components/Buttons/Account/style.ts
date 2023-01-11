@@ -11,4 +11,10 @@ export const NoAccountWrapper = styled.div `
     flex-direction: row;
     justify-content: center;
     margin-top: 32px;
+
+    @media (max-width: 790px) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 10px;
+    }
 `;

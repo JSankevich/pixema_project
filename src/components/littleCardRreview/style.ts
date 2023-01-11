@@ -5,13 +5,23 @@ export const CardWrapper = styled.div `
     height: 433px;
     position: relative;
   
-  :hover {
-    opacity: 0.6;
-  }
+    :hover {
+        opacity: 0.6;
+    }
   
-  :active{
-    opacity: 0.9;
-  }
+    :active{
+        opacity: 0.9;
+    }
+
+    @media (max-width: 1490px) {
+        width: 208px;
+        height: 379px;
+    }
+
+    @media (max-width: 790px) {
+        width: 272px;
+        height: 437px;
+    }
 `;
 
 export const ImageWrapper = styled.div `
@@ -19,10 +29,20 @@ export const ImageWrapper = styled.div `
     height: 357px;
   
     img {
-      object-fit: cover;
-      width: 99%;
-      height: 100%;
-      border-radius: 20px;
+        object-fit: cover;
+        width: 99%;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 1490px) {
+        width: 208px;
+        height: 279px;
+    }
+
+    @media (max-width: 790px) {
+        width: 272px;
+        height: 365px;
     }
 `;
 

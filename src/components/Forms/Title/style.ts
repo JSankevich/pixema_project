@@ -8,4 +8,9 @@ export const TitleWrapper = styled.div `
     line-height: 36px;
     color: #FFFFFF;
     margin-bottom: 40px;
+
+    @media (max-width: 790px) {
+        font-size: 20px;
+        line-height: 32px;
+    } 
 `;

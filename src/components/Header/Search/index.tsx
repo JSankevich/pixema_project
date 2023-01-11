@@ -1,20 +1,14 @@
 import React, {ReactEventHandler, useState} from "react";
 import {SearchWrapper} from "./style";
-
-export type SearchProps = {
-    onChange: () => void,
-    value: string,
-}
+import {useNavigate} from "react-router-dom";
+import search from "./images/search.png"
 
 export const Search = () => {
-    const [search, setSearch] = useState('');
-
+    const navigate = useNavigate();
     return (
         <>
             <SearchWrapper>
-                <input type="search"
-                       placeholder="Начать поиск..."
-                       />
+                <img src={search} alt="search" onClick={() => navigate("/Search")}/>
             </SearchWrapper>
         </>
     )

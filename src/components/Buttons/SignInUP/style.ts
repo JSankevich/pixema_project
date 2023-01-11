@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const ButtonWrapper = styled.div `
     margin-top: 40px;
+
+    @media (max-width: 790px) {
+        margin-top: 10px;
+    }
   
     button {
         width: 494px;
@@ -16,6 +20,10 @@ export const ButtonWrapper = styled.div `
         font-size: 16px;
         line-height: 24px;
         color: #FFFFFF;
+
+        @media (max-width: 790px) {
+            width: 225px;
+        }
       
         :hover {
             background-color: #917CFF;
@@ -25,6 +33,5 @@ export const ButtonWrapper = styled.div `
             background-color: #80858B;
             color: #AFB2B6;
         }
-
     }
 `;

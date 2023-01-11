@@ -10,8 +10,8 @@ import {
     WRONG_EMAIL, WRONG_NAME_LENGTH,
     WRONG_PASSWORD_LENGTH
 } from "../../CustomInput/validate";
-import {Button} from "../Button";
-import {DontHaveAccount} from "../Account";
+import {Button} from "../../Buttons/SignInUP";
+import {DontHaveAccount} from "../../Buttons/Account";
 import {Navigate, NavLink, useNavigate} from "react-router-dom";
 import { redirect } from "react-router-dom";
 

@@ -8,6 +8,14 @@ export const SignInWrapper = styled.div `
     border-radius: 10px;
     margin: auto;
     position: relative;
+    margin-bottom: 100px;
+
+    @media (max-width: 790px) {
+        width: 272px;
+        height: 500px;
+        padding: 24px;
+        margin-bottom: 48px;
+    }
 `;
 
 export const ErrorWrapperPassword = styled.div `
@@ -18,7 +26,11 @@ export const ErrorWrapperPassword = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    bottom: 200px
+    bottom: 200px;
+
+    @media (max-width: 790px) {
+        bottom: 140px;
+    }
 `;
 
 export const ErrorWrapperEmail= styled.div`
@@ -29,7 +41,11 @@ export const ErrorWrapperEmail= styled.div`
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 205px
+    top: 205px;
+
+    @media (max-width: 790px) {
+        top: 185px
+    }
 `;
 
 export const WrapperTextAccount = styled.div `
@@ -43,9 +59,15 @@ export const WrapperTextAccount = styled.div `
     }
   
     p {
-    color: rgba(123, 97, 255, 1);
-    cursor: pointer;
-    margin-top: 32px;  
-}
+        color: rgba(123, 97, 255, 1);
+        cursor: pointer;
+        margin-top: 32px;
+
+        @media (max-width: 790px) {
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: 24px;
+        }
+    }
 `;
 

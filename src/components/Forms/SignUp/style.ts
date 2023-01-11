@@ -7,6 +7,14 @@ export const SignUpWrapper = styled.div `
     background: #242426;
     border-radius: 10px;
     margin: auto;
+    margin-bottom: 100px;
+
+    @media (max-width: 790px) {
+        width: 272px;
+        height: 630px;
+        padding: 24px;
+        margin-bottom: 48px;
+    }
 `;
 
 export const TextWrapper = styled.div `
@@ -23,6 +31,18 @@ export const TextWrapper = styled.div `
         color: rgba(123, 97, 255, 1);
         cursor: pointer;
         margin-top: 32px;
+
+        @media (max-width: 790px) {
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 790px) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 24px;
     }
 `;
 
@@ -34,7 +54,13 @@ export const ErrorWrapperName = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 310px
+    top: 370px;
+
+    @media (max-width: 790px) {
+        top: 350px;
+        width: 245px;
+    }
+  
 `;
 
 export const WrapperEmailError = styled.div `
@@ -45,7 +71,11 @@ export const WrapperEmailError = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 420px
+    top: 480px;
+
+    @media (max-width: 790px) {
+        width: 245px;
+    }
 `;
 
 export const WrapperErrorPassword = styled.div `
@@ -56,5 +86,10 @@ export const WrapperErrorPassword = styled.div `
     line-height: 24px;
     color: #FF5154;
     position: absolute;
-    top: 535px
+    top: 590px;
+
+    @media (max-width: 790px) {
+        top: 615px;
+        width: 245px;
+    }
 `;

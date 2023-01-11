@@ -4,7 +4,7 @@
  import {SelectedCard} from "../SelectedCard";
  import {FilmInfoSelected} from "./types";
  import {FilmSelectedWrapper} from "./style";
- import {BackHome} from "../ButtonBackHome";
+ import {BackHome} from "../Buttons/BackHome";
 
  type IdInfo = {
      id: string,
@@ -14,20 +14,19 @@
      const { id } = useParams<IdInfo>();
      const [item, setItem] = useState<FilmInfoSelected>();
 
-     useEffect(() => {
-         fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${Number(id)}`,
-             {
-                 headers: {
-                     'X-API-KEY': API_KEY,
-                 }
-             })
-             .then(response => response.json())
-             .then(data => setItem(data))
-     },[Number(id)])
+     // useEffect(() => {
+     //     fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${Number(id)}`,
+     //         {
+     //             headers: {
+     //                 'X-API-KEY': API_KEY,
+     //             }
+     //         })
+     //         .then(response => response.json())
+     //         .then(data => setItem(data))
+     // },[Number(id)])
 
      return (
          <>
-             <BackHome />
              <FilmSelectedWrapper>
                  {item && (
                  <>
@@ -43,9 +42,9 @@
                      </NavLink>
                  </>
              )}
-             </FilmSelectedWrapper>
 
+             </FilmSelectedWrapper>
+             <BackHome />
          </>
                  )
-
  };
