@@ -54,7 +54,9 @@ export const HeaderWrapper = styled.div `
 `;
 
 export const UserWrapper = styled.div `
-    margin-left: 10px;
+    color: white;
+    text-align: center;
+    margin: auto auto auto 10px;
   
     @media (max-width: 790px) {
         width: 70px;

@@ -5,10 +5,10 @@ import {BackHome} from "../Buttons/BackHome";
 export const NotFound = () => {
     return (
         <>
-        <NotFoundText>
-            !!! Странице не найдена !!!
-        </NotFoundText>
-        <BackHome />
+            <NotFoundText>
+                !!! Странице не найдена !!!
+            </NotFoundText>
+            <BackHome />
         </>
     )
 }

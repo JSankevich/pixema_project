@@ -33,7 +33,7 @@ export const ErrorWrapperPassword = styled.div `
     }
 `;
 
-export const ErrorWrapperEmail= styled.div`
+export const ErrorWrapperName= styled.div`
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 500;

@@ -1,19 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Title} from "../Title";
-import {SignInWrapper, ErrorWrapperPassword, ErrorWrapperEmail, WrapperTextAccount} from "../SignIn/style"
+import {SignInWrapper, ErrorWrapperPassword, ErrorWrapperName, WrapperTextAccount} from "./style"
 import {CustomInput} from "../../CustomInput";
-import {
-    emailRegExp,
-    ENTER_EMAIL, ENTER_NAME,
-    ENTER_PASSWORD,
-    NOT_ERROR,
-    WRONG_EMAIL, WRONG_NAME_LENGTH,
-    WRONG_PASSWORD_LENGTH
-} from "../../CustomInput/validate";
 import {Button} from "../../Buttons/SignInUP";
 import {DontHaveAccount} from "../../Buttons/Account";
-import {Navigate, NavLink, useNavigate} from "react-router-dom";
-import { redirect } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {ENTER_NAME, ENTER_PASSWORD, NOT_ERROR, WRONG_NAME_LENGTH, WRONG_PASSWORD_LENGTH} from "../../../utils/vilidate";
 
 export const SignIn = () => {
 
@@ -32,10 +24,9 @@ export const SignIn = () => {
              setFormValid(true);
          }
 
-     }, [emailError, passwordError])
+    }, [emailError, passwordError])
 
     const handleSignIn = (e:any) => {
-
         e.preventDefault();
         let userInStorage:any = localStorage.getItem(name);
         let dataInStorage = JSON.parse(userInStorage);
@@ -43,7 +34,7 @@ export const SignIn = () => {
         if (userInStorage == null) {
             alert ("Неверное имя пользователя. Попробуйте ещё раз");
         } else if (name == dataInStorage.username && password == dataInStorage.password) {
-            alert ("Вход осуществлен");
+            alert (`Здравствуйте, ${name}! С возвращением`);
             setName('');
             setPassword('');
             navigate('/');
@@ -76,36 +67,36 @@ export const SignIn = () => {
 
     return (
         <>
-        <SignInWrapper>
-            <Title text='Войти' />
-            <form>
-            <CustomInput
-                onChange={e => handlerName(e)}
-                value={name}
-                name={name}
-                type="text"
-                placeholder="Введите имя пользователя..."
-                label="Имя пользователя"
-                 />
-            {nameError && <ErrorWrapperEmail>{nameError}</ErrorWrapperEmail>}
-            <CustomInput
-                onChange={e => handlerPassword(e)}
-                value={password}
-                name={password}
-                type="password"
-                placeholder="Введите ваш пароль..."
-                label="Пароль"
-                 />
-            {passwordError && <ErrorWrapperPassword>{passwordError}</ErrorWrapperPassword>}
-            </form>
-            <Button onClick={handleSignIn} disabled={!formValid} type="submit" text="Войти" />
-            <WrapperTextAccount>
-            <DontHaveAccount textMain='Нет аккаунта? ' />
-            <NavLink to="/SignUp">
-            <p>Зарегистрироваться</p>
-            </NavLink>
-            </WrapperTextAccount>
-        </SignInWrapper>
+            <SignInWrapper>
+                <Title text='Войти' />
+                <form>
+                    <CustomInput
+                        onChange={e => handlerName(e)}
+                        value={name}
+                        name={name}
+                        type="text"
+                        placeholder="Введите имя пользователя..."
+                        label="Имя пользователя"
+                    />
+                    {nameError && <ErrorWrapperName>{nameError}</ErrorWrapperName>}
+                    <CustomInput
+                        onChange={e => handlerPassword(e)}
+                        value={password}
+                        name={password}
+                        type="password"
+                        placeholder="Введите ваш пароль..."
+                        label="Пароль"
+                    />
+                    {passwordError && <ErrorWrapperPassword>{passwordError}</ErrorWrapperPassword>}
+                </form>
+                <Button onClick={handleSignIn} disabled={!formValid} type="submit" text="Войти" />
+                <WrapperTextAccount>
+                    <DontHaveAccount textMain='Нет аккаунта? ' />
+                    <NavLink to="/SignUp">
+                        <p>Зарегистрироваться</p>
+                    </NavLink>
+                </WrapperTextAccount>
+            </SignInWrapper>
         </>
     )
 }

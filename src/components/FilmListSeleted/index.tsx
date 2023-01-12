@@ -21,15 +21,22 @@
      //                 'X-API-KEY': API_KEY,
      //             }
      //         })
-     //         .then(response => response.json())
-     //         .then(data => setItem(data))
+     //         .then(response => {
+     //             if (response.status >= 200 && response.status < 300) {
+     //                return response.json()
+     //                .then(data => {
+     //                    setItem(data)
+     //                })
+     //             } else {
+     //                 return alert('Ошибка обработки запроса')
+     //             }
+     //         })
      // },[Number(id)])
 
      return (
          <>
              <FilmSelectedWrapper>
                  {item && (
-                 <>
                      <NavLink to={`/film/${id}`}>
                          <SelectedCard
                              filmId={item.filmId}
@@ -40,11 +47,9 @@
                              filmLength={item.filmLength}
                              description={item.description} />
                      </NavLink>
-                 </>
-             )}
-
+                 )}
              </FilmSelectedWrapper>
              <BackHome />
          </>
-                 )
+     )
  };

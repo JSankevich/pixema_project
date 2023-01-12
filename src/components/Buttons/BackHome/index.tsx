@@ -6,11 +6,11 @@ export const BackHome = () => {
     
     return (
         <BackHomeWrapper>
-                <NavLink to="/">
-                    <BackHomeText>
-                        На главную
-                    </BackHomeText>
-                </NavLink>
+            <NavLink to="/">
+                <BackHomeText>
+                    На главную
+                </BackHomeText>
+            </NavLink>
         </BackHomeWrapper>
     )
 }
