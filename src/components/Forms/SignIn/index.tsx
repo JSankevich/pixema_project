@@ -7,6 +7,7 @@ import {DontHaveAccount} from "../../Buttons/Account";
 import {NavLink, useNavigate} from "react-router-dom";
 import {ENTER_NAME, ENTER_PASSWORD, NOT_ERROR, WRONG_NAME_LENGTH, WRONG_PASSWORD_LENGTH} from "../../../utils/vilidate";
 
+
 export const SignIn = () => {
 
     const [name, setName] = useState('');
@@ -17,6 +18,7 @@ export const SignIn = () => {
     const [nameError, setNameError] = useState(' ');
     let navigate = useNavigate();
 
+
     useEffect(() => {
          if (emailError || passwordError) {
              setFormValid(false);
@@ -25,6 +27,11 @@ export const SignIn = () => {
          }
 
     }, [emailError, passwordError])
+
+    const logIn = (text: string) => {
+        let keyName = 'autorized';
+        localStorage.setItem(keyName,text)
+    }
 
     const handleSignIn = (e:any) => {
         e.preventDefault();
@@ -38,9 +45,12 @@ export const SignIn = () => {
             setName('');
             setPassword('');
             navigate('/');
+            logIn(name);
         } else {
             alert ("Неверный пароль. Попробуйте ещё раз");
         }
+
+
     }
 
     const handlerName = (e: React.ChangeEvent<HTMLInputElement>) => {
