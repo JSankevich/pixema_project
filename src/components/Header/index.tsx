@@ -6,19 +6,24 @@ import {Search} from "./Search";
 import {NavLink, useNavigate} from "react-router-dom";
 
 export const Header = () => {
-    const navigate = useNavigate();
+    const LogOut = () => {
+        localStorage.removeItem('autorized');
+    }
+    const navigate = useNavigate()
 
     return (
         <HeaderWrapper>
             <LogoWrapper onClick={() => navigate('/')}><img src={pixema_logo} alt="logo" /></LogoWrapper>
             <RightPanel>
                 <Search />
-                <SignWrapper>
+                <SignWrapper onClick={LogOut}>
                     <NavLink to='/SignIn'>
                         <img src={signIn} alt="SignIn" />
                     </NavLink>
                 </SignWrapper>
-                <UserWrapper className='userNameWrapper'>Имя пользователя</UserWrapper>
+                <UserWrapper className='userNameWrapper'>
+                    {localStorage.getItem('autorized') ? localStorage.getItem('autorized') : 'Войти'}
+                </UserWrapper>
             </RightPanel>
         </HeaderWrapper>
     )

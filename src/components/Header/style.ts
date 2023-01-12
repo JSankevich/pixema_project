@@ -64,10 +64,9 @@ export const UserWrapper = styled.div `
 `;
 
 export const RightPanel = styled.div `
-    border: 2px solid greenyellow;
     display: flex;
     flex-direction: row;
-    width: 285px;
+    width: 220px;
     justify-content: space-between;
 
     @media (max-width: 790px) {
