@@ -14,24 +14,24 @@
      const { id } = useParams<IdInfo>();
      const [item, setItem] = useState<FilmInfoSelected>();
 
-     // useEffect(() => {
-     //     fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${Number(id)}`,
-     //         {
-     //             headers: {
-     //                 'X-API-KEY': API_KEY,
-     //             }
-     //         })
-     //         .then(response => {
-     //             if (response.status >= 200 && response.status < 300) {
-     //                return response.json()
-     //                .then(data => {
-     //                    setItem(data)
-     //                })
-     //             } else {
-     //                 return alert('Ошибка обработки запроса')
-     //             }
-     //         })
-     // },[Number(id)])
+     useEffect(() => {
+         fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${Number(id)}`,
+             {
+                 headers: {
+                     'X-API-KEY': API_KEY,
+                 }
+             })
+             .then(response => {
+                 if (response.status >= 200 && response.status < 300) {
+                    return response.json()
+                    .then(data => {
+                        setItem(data)
+                    })
+                 } else {
+                     return alert('Ошибка обработки запроса')
+                 }
+             })
+     },[Number(id)])
 
      return (
          <>
