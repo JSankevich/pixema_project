@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const LogoWrapper = styled.div `
    width: 158px;
    height: 40px;
+   cursor: pointer; 
   
   img {
       width: 100%;

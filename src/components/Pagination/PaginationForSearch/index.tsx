@@ -33,7 +33,7 @@ export const PaginationSearch = () => {
                     type="search"
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Поиск..."
+                    placeholder="Начните вводить для поиска..."
                 />
             </TextSearchWrapper>
             <Container sx={{maxWidth: '1480px'}}>

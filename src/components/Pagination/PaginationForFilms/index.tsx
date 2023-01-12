@@ -11,24 +11,24 @@ export const PaginationFilms = () => {
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState();
 
-    // useEffect(() => {
-    //     fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=${page}`,
-    //         {
-    //             headers: {
-    //                 'X-API-KEY': API_KEY,
-    //             }})
-    //         .then(response => {
-    //             if (response.status >= 200 && response.status < 300) {
-    //                 return response.json()
-    //                 .then(data => {
-    //                     setFilms(data.films)
-    //                     setPagesCount (data.pagesCount)
-    //                 })
-    //             } else {
-    //                 return alert('Ошибка обработки запроса')
-    //             }
-    //         })
-    // }, [page])
+    useEffect(() => {
+        fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=${page}`,
+            {
+                headers: {
+                    'X-API-KEY': API_KEY,
+                }})
+            .then(response => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json()
+                    .then(data => {
+                        setFilms(data.films)
+                        setPagesCount (data.pagesCount)
+                    })
+                } else {
+                    return alert('Ошибка обработки запроса')
+                }
+            })
+    }, [page])
 
     return (
         <ContainerWrapper>

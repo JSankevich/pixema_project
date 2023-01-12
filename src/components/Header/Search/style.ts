@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const SearchWrapper = styled.div `
     width: 56px;
     height: 56px;
+    margin-right: 10px;
+    cursor: pointer;
 
     img {
         width: 100%;
