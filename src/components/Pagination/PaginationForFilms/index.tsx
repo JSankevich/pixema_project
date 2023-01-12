@@ -17,47 +17,50 @@ export const PaginationFilms = () => {
     //             headers: {
     //                 'X-API-KEY': API_KEY,
     //             }})
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             setFilms(data.films)
-    //             setPagesCount (data.pagesCount)
-    //
+    //         .then(response => {
+    //             if (response.status >= 200 && response.status < 300) {
+    //                 return response.json()
+    //                 .then(data => {
+    //                     setFilms(data.films)
+    //                     setPagesCount (data.pagesCount)
+    //                 })
+    //             } else {
+    //                 return alert('Ошибка обработки запроса')
+    //             }
     //         })
     // }, [page])
 
     return (
-        <>
         <ContainerWrapper>
             <Container sx={{maxWidth: '1480px'}}>
                 <ContainerFilmsWrapper>
-                {
-                    films.map(films => (
-                        <NavLink to={`/film/${films.filmId}`}>
-                        <LittleCard
-                            key={films.filmId}
-                            filmId={films.filmId}
-                            nameRu={films.nameRu}
-                            genres={films.genres}
-                            rating={films.rating}
-                            posterUrlPreview={films.posterUrlPreview} />
-                        </NavLink>
-                    ))
-                }
+                    {
+                        films.map(films => (
+                            <NavLink to={`/film/${films.filmId}`}>
+                                <LittleCard
+                                    key={films.filmId}
+                                    filmId={films.filmId}
+                                    nameRu={films.nameRu}
+                                    genres={films.genres}
+                                    rating={films.rating}
+                                    posterUrlPreview={films.posterUrlPreview} />
+                            </NavLink>
+                        ))
+                    }
                 </ContainerFilmsWrapper>
                 <PaginationWrapper>
-                {!!pagesCount && (
-                    <Pagination className="PaginateItem"
-                        color="secondary"
-                        size="small"
-                        count={pagesCount}
-                        page={page}
-                        onChange={(_, num) => setPage(num)}
-                    />
-                )}
+                    {!!pagesCount && (
+                        <Pagination
+                            className="PaginateItem"
+                            color="secondary"
+                            size="small"
+                            count={pagesCount}
+                            page={page}
+                            onChange={(_, num) => setPage(num)}
+                        />
+                    )}
                 </PaginationWrapper>
             </Container>
         </ContainerWrapper>
-        </>
     );
 };

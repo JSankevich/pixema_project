@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const SelectedWrapper = styled.div `
     width: 1186px;
     height: 668px;
-    border: 2px solid white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -49,7 +48,6 @@ export const ImageBigWrapper = styled.div `
 export const ContentWrapper = styled.div `
     width: 878px;
     height: 668px;
-    border: 1px solid white;
 
     @media (max-width: 1490px) {
         width: 448px;
@@ -90,7 +88,7 @@ export const FilmTitle = styled.div `
   
 `;
 
-export const FilmRating = styled.div `
+export const FilmRating = styled.div <{rating:number}> `
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -99,10 +97,23 @@ export const FilmRating = styled.div `
     color: #FFFFFF;
     width: 37px;
     height: 28px;
-    background: #00A340;
+    background: ${(props) => {
+        if (Number(props.rating) > 7) {
+            return '#00A340';
+        } else if (Number(props.rating) > 5) {
+            return '#F3A608';
+        } else {
+            return '#F45D2D';
+    }
+    }};
     border-radius: 6px;
     text-align: center;
     padding: 2px 8px;
+    display: ${(props) => {
+        if (Number(props.rating) > 0) {
+            return 'block';
+        } else {return 'none'}
+    }};
 `;
 
 export const FilmLength = styled.div `

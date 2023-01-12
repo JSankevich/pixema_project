@@ -6,16 +6,16 @@
 
      return (
          <InputWrapper>
-                <LabelWrapper>
+            <LabelWrapper>
                 <label>{props.label}</label>
-                </LabelWrapper>
-                <input
+            </LabelWrapper>
+            <input
                  onChange={props.onChange}
                  value={props.value}
                  name={props.name}
                  type={props.type}
                  placeholder={props.placeholder}
-                 />
+            />
          </InputWrapper>
      )
  };

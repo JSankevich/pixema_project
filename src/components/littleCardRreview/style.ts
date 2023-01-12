@@ -59,6 +59,14 @@ export const FilmTitle = styled.p `
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+
+    @media (max-width: 1490px) {
+      width: 208px;
+    }
+
+    @media (max-width: 790px) {
+        width: 272px;
+    }
 `;
 
 export const FilmType = styled.div `
@@ -74,6 +82,14 @@ export const FilmType = styled.div `
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+
+    @media (max-width: 1490px) {
+        width: 208px;
+    }
+  
+    @media (max-width: 790px) {
+        width: 272px;
+    }
 `;
 
 export const FilmRating = styled.div <{rating:string}>`
@@ -88,9 +104,9 @@ export const FilmRating = styled.div <{rating:string}>`
              return '#00A340';
         } else if (Number(props.rating) > 5) {
             return '#F3A608';
-        } else {
+        } else if (Number(props.rating) > 0){
             return '#F45D2D';
-        }
+        } else {return 'none'}
     }};
     border-radius: 6px;
     text-align: center;
@@ -100,4 +116,11 @@ export const FilmRating = styled.div <{rating:string}>`
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+    display: ${(props) => {
+        if (Number(props.rating) > 0) {
+            return 'block';
+        } else {
+            return 'none'
+        }
+    }};
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TextSearchWrapper = styled.div `
     width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     height: 56px;
  
     @media (max-width: 790px) {
