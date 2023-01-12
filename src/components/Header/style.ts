@@ -71,7 +71,7 @@ export const RightPanel = styled.div `
     justify-content: space-between;
 
     @media (max-width: 790px) {
-        width: 120px;
+        width: 80px;
         height: 40px;
 
         .userNameWrapper {
