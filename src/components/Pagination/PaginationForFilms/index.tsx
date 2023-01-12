@@ -36,7 +36,7 @@ export const PaginationFilms = () => {
                 <ContainerFilmsWrapper>
                     {
                         films.map(films => (
-                            <NavLink to={`/film/${films.filmId}`}>
+                            <NavLink key={films.filmId} to={`/film/${films.filmId}`}>
                                 <LittleCard
                                     key={films.filmId}
                                     filmId={films.filmId}
